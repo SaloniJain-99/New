@@ -5,5 +5,11 @@ def home(request):
    return render(request,"home.html")
 
 def welcome(request):
-    text = request.GET['text']
-    return render(request,"welcome.html",{'text':text})
+    t = request.GET['text']
+    n=int(t)
+    sum=0
+    while n>0:
+        d=n%10
+        sum=sum+d
+        n=n//10
+    return render(request,"welcome.html",{'sod':sum})
